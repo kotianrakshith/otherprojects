@@ -4,7 +4,7 @@
 
 This is many of the hands-on projects done by me and this will be worked upon and more will be added
 
-1.CI/CD Deployment of Java application in tomcat server using Jenkins and Ansible CM Tool
+**1.CI/CD Deployment of Java application in tomcat server using Jenkins and Ansible CM Tool
 
 2.Deploy wordpress with MySQL using Kubernetes(using Persistent volumes, ConfigMap, Secrets)
 
@@ -14,5 +14,5 @@ This is many of the hands-on projects done by me and this will be worked upon an
 
 5.Deployment of Flask Application with Redis using Kubernetes
 
-6.Deploying the kubernetes dashboard
+6.Deploying the kubernetes dashboard**
 
