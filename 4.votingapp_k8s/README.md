@@ -38,13 +38,13 @@ Now since our deployment is done, we can check where the result pod is running a
 
 ![](/4.votingapp_k8s/readmeimages/Aspose.Words.954a6ea4-03a0-4374-acac-f8bcf514e8e3.008.png)
 
-As result is in node 2, we can use 172.31.52.153:31001
+As result is in node 2, we can use _172.31.52.153:31001_
 
 **As you can see we can access the app:**
 
 ![](/4.votingapp_k8s/readmeimages/Aspose.Words.954a6ea4-03a0-4374-acac-f8bcf514e8e3.009.png)
 
-We can also see voting app in 172.31.55.232:31000
+We can also see voting app in _172.31.55.232:31000_
 
 ![](/4.votingapp_k8s/readmeimages/Aspose.Words.954a6ea4-03a0-4374-acac-f8bcf514e8e3.010.png)
 
