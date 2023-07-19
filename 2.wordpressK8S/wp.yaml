@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: wordpress
+  name: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - image: wordpress
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          valueFrom:
+               configMapKeyRef:
+                  name: myconfigmap
+                  key: WORDPRESS_DB_HOST
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: password
+        - name: WORDPRESS_DB_USER
+          valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: username
+        - name: WORDPRESS_DB_NAME
+          valueFrom:
+               configMapKeyRef:
+                  name: myconfigmap
+                  key: WORDPRESS_DB_NAME
+        resources: {}
+        volumeMounts:
+        - name: wordpress-persistent-storage
+          mountPath: "/var/www/html"
+      volumes:
+      - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+          claimName: wordpress-persistent-storage
+status: {}
