@@ -1,0 +1,15 @@
+---
+- name: Run Maven build
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Clone Git repository
+      git:
+        repo: https://github.com/kotianrakshith/Testwarfile.git  
+        dest: /home/labsuser/mavenfile/
+    - name: Build WAR with Maven
+      shell:
+        cmd: mvn clean install
+        chdir: /home/labsuser/mavenfile/
+      args:
+        executable: /bin/bash
