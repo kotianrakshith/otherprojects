@@ -1,0 +1,58 @@
+---
+- name: Install Tomcat
+  hosts: webcontainer
+  remote_user: labsuser
+  become: true
+  tasks:
+    - name: create a user
+      user:
+        name: tomcat
+ 
+    - name: create a group
+      group:
+        name: tomcat
+ 
+    - name: install java jdk
+      apt:
+        name: default-jdk
+        state: present
+ 
+ 
+    - name: create a directory
+      file:
+        path: /home/labsuser/tomcat
+        owner: tomcat
+        group: tomcat
+        mode: 755
+        recurse: yes
+ 
+    - name: Download Apache Tomcat 10
+      become: true
+      get_url:
+        url: "https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.7/bin/apache-tomcat-10.1.7.tar.gz"
+        dest: "/tmp/"
+
+    - name: Extract Apache Tomcat 10
+      become: true
+      unarchive:
+        src: "/tmp/apache-tomcat-10.1.7.tar.gz"
+        dest: "/opt/"
+        remote_src: yes
+        creates: "/opt/apache-tomcat-10.1.7"
+
+    - name: Set Tomcat ownership and permissions
+      become: true
+      file:
+        path: "/opt/apache-tomcat-10.1.7"
+        state: directory
+        recurse: yes
+        owner: tomcat
+        group: tomcat
+        mode: "0755"
+        
+    - name: Enable the tomcat service and start
+      become: yes
+      systemd:
+        name: tomcat
+        enabled: yes
+        state: started
