@@ -1,4 +1,4 @@
-# **Project: CI/CD Deployment Using Ansible CM Tool**
+# **CI/CD Deployment of Java application in tomcat server using Jenkins and Ansible CM Tool**
 
 ## **Steps Done:**
 
