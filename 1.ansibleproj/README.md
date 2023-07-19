@@ -1,8 +1,8 @@
-**Project: CI/CD Deployment Using Ansible CM Tool**
+# **Project: CI/CD Deployment Using Ansible CM Tool**
 
-**Steps Done:**
+## **Steps Done:**
 
-1. **Configure Jenkins server as Ansible provisioning machine**
+## **1. Configure Jenkins server as Ansible provisioning machine**
    
 (This project was done in the lab provided simplilearn)
 
@@ -34,7 +34,7 @@ Trying to ping the node
 
 We can see that it worked correctly and did not ask for any password.
 
-**2.  Install Ansible plugins in Jenkins CI server**
+## **2.  Install Ansible plugins in Jenkins CI server**
 
 As Jenkins is not installed in this machine I’m following steps to install java jdk and jenkins from the ansible website : https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 
@@ -58,7 +58,7 @@ Then go to Manage Jenkins and Global Tool Configuration so you can configure the
 
 ![](/1.ansibleproj/readmeimages/Aspose.Words.92a2be4a-feb6-4e52-95c8-95e0112a1c40.011.png)
 
-**3. Prepare Ansible playbook to run Maven build on Jenkins CI server**
+## **3. Prepare Ansible playbook to run Maven build on Jenkins CI server**
 
 After making sure maven was insatlled I have forked a test repo required to create war file in the github from the internet. Then I prepared the Ansible playbook as below:
 
@@ -68,7 +68,7 @@ Link: <https://github.com/kotianrakshith/otherprojects/blob/main/1.ansibleproj/m
 
 We are not running this playbook as we have to create automated CI/CD pipeline using this playbook.
 
-**4. Prepare Ansible playbook to execute deployment steps on the remote web container with restart of the web container post deployment**
+## **4. Prepare Ansible playbook to execute deployment steps on the remote web container with restart of the web container post deployment**
 
 Before we automate the deployment for the WAR file we need to make sure that worker node is setup as tomcat web container, so we need to instal and setup tomcat in the node.
 
