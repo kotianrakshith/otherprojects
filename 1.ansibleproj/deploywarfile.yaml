@@ -1,0 +1,12 @@
+---
+  - hosts: webcontainer
+    become: true
+    tasks:
+      - name: Copy the war frile to webcontainer
+        copy: 
+          src: "/home/labsuser/mavenfile/target/LoginWebApp-1.war"
+          dest: "/opt/apache-tomcat-10.1.7/webapps/LoginWebApp-1.war"
+      - name: Restart tomcat
+        service:
+          name: tomcat
+          state: restarted
